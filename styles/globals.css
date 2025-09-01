@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth fonts and consistent body background */
+html, body, #__next {
+	height: 100%;
+}
+body {
+	background-color: #f8fafc; /* slate-50 */
+	color: #0f172a; /* slate-900 */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
