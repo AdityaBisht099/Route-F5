@@ -1,15 +1,24 @@
 {
   "name": "route-f5",
   "version": "1.0.0",
-  "description": "",
+  "description": "AI-driven roadmaps to plan smarter, learn faster, and grow together. A student-first goal tracking and roadmap platform.",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "nextjs",
+    "goal-tracking",
+    "roadmaps",
+    "student-platform",
+    "ai-driven",
+    "productivity"
+  ],
+  "author": "AdityaBisht07",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {

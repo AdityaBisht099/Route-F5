@@ -24,18 +24,18 @@ export default function GoalCard({ title, percent, accent = "violet" }: GoalCard
 	return (
 		<motion.div
 			whileHover={{ scale: 1.01 }}
-			className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
+			className="group relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 p-5 shadow-sm transition-shadow hover:shadow-md"
 		>
 			{/* soft glow */}
 			<div className={`pointer-events-none absolute -inset-12 -z-10 rounded-full ${cl.glow} blur-3xl opacity-0 transition-opacity group-hover:opacity-100`} />
 
 			<div className="flex items-start justify-between gap-4">
-				<h3 className="text-sm font-medium text-slate-800">{title}</h3>
-				<span className="text-xs tabular-nums text-slate-500">{safePercent}%</span>
+				<h3 className="text-sm font-medium text-slate-800 dark:text-slate-200">{title}</h3>
+				<span className="text-xs tabular-nums text-slate-500 dark:text-slate-400">{safePercent}%</span>
 			</div>
 
 			{/* progress track */}
-			<div className="mt-3 h-2 w-full rounded-full bg-slate-100">
+			<div className="mt-3 h-2 w-full rounded-full bg-slate-100 dark:bg-slate-700">
 				<motion.div
 					initial={{ width: 0 }}
 					whileInView={{ width: `${safePercent}%` }}
