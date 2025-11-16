@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
+import { Target, Zap, Users, TrendingUp } from "lucide-react";
 
 export default function HomePage() {
 	const shouldReduceMotion = useReducedMotion();
@@ -37,49 +38,77 @@ export default function HomePage() {
 			</Head>
 
 			{/* Minimal, centered layout */}
-			<main id="main-content" className="relative min-h-screen overflow-hidden bg-white text-slate-900 antialiased" style={{ fontFamily: "Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" }}>
+			<main id="main-content" className="relative min-h-screen overflow-hidden bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 antialiased" style={{ fontFamily: "Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" }}>
 
-				<div className="relative mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center px-6">
-					{/* Title */}
-					<motion.h1
-						{...fadeUp(0)}
-						className="text-center text-4xl font-semibold tracking-tight sm:text-5xl"
-					>
-						<span className="text-slate-900">Route F5</span>
-					</motion.h1>
-
-					{/* Subheading */}
-					<motion.p
-						{...fadeUp(0.05)}
-						className="mt-3 max-w-xl text-center text-base text-slate-600 sm:text-lg"
-					>
-						AI‑driven roadmaps to plan smarter, learn faster, and grow together.
-					</motion.p>
-
-					{/* CTA */}
-					<motion.div
-						{...fadeUp(0.1)}
-						className="mt-7 flex items-center gap-4"
-					>
-						<Link
-							href="/home"
-							aria-label="Get started with Route F5"
-							className="inline-flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-400/50 sm:text-base"
+				<div className="relative mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 py-12">
+					{/* Hero Section */}
+					<div className="flex flex-col items-center text-center mb-16">
+						{/* Title */}
+						<motion.h1
+							{...fadeUp(0)}
+							className="text-center text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl"
 						>
-							Get started
-						</Link>
-						<a
-							href="https://github.com/AdityaBisht07/Route-F5"
-							className="text-sm font-medium text-slate-600 underline-offset-4 hover:text-slate-900 hover:underline sm:text-base"
-							rel="noopener noreferrer"
-							target="_blank"
+							<span className="text-slate-900 dark:text-white">Route F5</span>
+						</motion.h1>
+
+						{/* Subheading */}
+						<motion.p
+							{...fadeUp(0.05)}
+							className="mt-4 max-w-2xl text-center text-base text-slate-600 dark:text-slate-400 sm:text-lg lg:text-xl"
 						>
-							View GitHub
-						</a>
-					</motion.div>
+							AI‑driven roadmaps to plan smarter, learn faster, and grow together.
+						</motion.p>
+
+						{/* CTA */}
+						<motion.div
+							{...fadeUp(0.1)}
+							className="mt-8 flex flex-col sm:flex-row items-center gap-4"
+						>
+							<Link
+								href="/dashboard"
+								aria-label="Get started with Route F5"
+								className="inline-flex items-center justify-center rounded-md bg-slate-900 dark:bg-white px-6 py-3 text-sm font-medium text-white dark:text-slate-900 transition-colors hover:bg-slate-800 dark:hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-400/50 sm:text-base"
+							>
+								Get started
+							</Link>
+							<a
+								href="https://github.com/AdityaBisht07/Route-F5"
+								className="text-sm font-medium text-slate-600 dark:text-slate-400 underline-offset-4 hover:text-slate-900 dark:hover:text-slate-200 hover:underline sm:text-base"
+								rel="noopener noreferrer"
+								target="_blank"
+							>
+								View GitHub
+							</a>
+						</motion.div>
+					</div>
+
+					{/* Features Section */}
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-5xl">
+						{[
+							{ icon: Target, title: "Goal Tracking", desc: "Set and track your goals with visual progress indicators" },
+							{ icon: Zap, title: "AI Insights", desc: "Get personalized recommendations powered by AI" },
+							{ icon: Users, title: "Community", desc: "Connect with other students and share your journey" },
+							{ icon: TrendingUp, title: "Roadmaps", desc: "Step-by-step roadmaps to achieve your goals faster" },
+						].map((feature, idx) => (
+							<motion.div
+								key={feature.title}
+								{...fadeUp(0.15 + idx * 0.05)}
+								className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 p-6 shadow-sm hover:shadow-md transition-shadow"
+							>
+								<feature.icon className="h-8 w-8 text-slate-900 dark:text-white mb-3" />
+								<h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-2">{feature.title}</h3>
+								<p className="text-xs text-slate-600 dark:text-slate-400">{feature.desc}</p>
+							</motion.div>
+						))}
+					</div>
 
 					{/* Minimal footer note */}
-					<p className="absolute bottom-6 text-center text-xs text-slate-500 sm:text-sm">Welcome back to Route F5</p>
+					<motion.p
+						{...fadeUp(0.4)}
+						className="absolute bottom-6 text-center text-xs text-slate-500 dark:text-slate-500 sm:text-sm"
+					>
+						Welcome back to Route F5
+					</motion.p>
 				</div>
 			</main>
 		</>

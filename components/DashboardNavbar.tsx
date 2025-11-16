@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { useDarkMode } from "../lib/hooks/useDarkMode";
 import { 
   Search, 
   Bell, 
@@ -20,10 +21,10 @@ import {
 const DashboardNavbar = () => {
   const pathname = usePathname();
   const shouldReduceMotion = useReducedMotion();
+  const { isDark, toggleDark } = useDarkMode();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [isNotifOpen, setIsNotifOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
   const profileRef = useRef<HTMLDivElement | null>(null);
@@ -56,14 +57,6 @@ const DashboardNavbar = () => {
   const toggleNotif = () => {
     setIsNotifOpen((v) => !v);
     setIsProfileDropdownOpen(false);
-  };
-
-  const toggleDark = () => {
-    const next = !isDark;
-    setIsDark(next);
-    const root = document.documentElement;
-    if (next) root.classList.add("dark");
-    else root.classList.remove("dark");
   };
 
   // Close menus on outside click
