@@ -5,7 +5,7 @@ import PageTransition from "../components/PageTransition";
 import GoalCard from "../components/GoalCard";
 import RoadmapCard from "../components/RoadmapCard";
 import AIInsightCard from "../components/AIInsightCard";
-
+ 
 export default function Explore() {
 	const goals = [
 		{ title: "Explore Feature Tour", percent: 60, accent: "violet" as const },
