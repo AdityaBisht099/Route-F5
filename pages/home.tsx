@@ -5,7 +5,7 @@ import { Target, Zap, Users, TrendingUp } from "lucide-react";
 
 export default function HomePage() {
 	const shouldReduceMotion = useReducedMotion();
-
+ 
 	const fadeUp = (delay = 0) => ({
 		initial: shouldReduceMotion ? undefined : { opacity: 0, y: 6 },
 		animate: { opacity: 1, y: 0 },
